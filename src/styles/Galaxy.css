@@ -1,0 +1,78 @@
+.Galaxy {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/galaxy.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "JUPITER . SATURNE ."
+      ". LA-TERRE . URANUS"
+      "MARS . NEPTUNE ."
+      ". MERCURE . VENUS";
+    position: relative;
+  }
+  
+  .JUPITER {
+    grid-area: JUPITER;
+    
+  }
+  
+  .MARS {
+    grid-area: MARS;
+  }
+  
+  .MERCURE {
+    grid-area: MERCURE;
+  }
+  
+  .NEPTUNE {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". . .";
+    grid-area: NEPTUNE;
+  }
+  
+  .SATURNE {
+    grid-area: SATURNE;
+  }
+  
+  .LA-TERRE {
+    grid-area: LA-TERRE;
+  }
+  
+  .URANUS {
+    grid-area: URANUS;
+  }
+  
+  .VENUS {
+    grid-area: VENUS;
+  }
+  
+  #carre {
+    height: 100px;
+    width: 100px;
+    background: red;
+    -ms-transform: rotate(45deg); 
+    -moz-transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg); 
+    -o-transform: rotate(45deg); 
+  }
+  
