@@ -1,8 +1,9 @@
 import React from 'react';
 import '../styles/Navbar.css'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    return (
+  return (
     <nav className="navigation">
       <a href="/" className="brand-name">
         SPACE-T
@@ -10,18 +11,18 @@ const Navbar = () => {
       <div className="navigation-menu">
         <ul>
           <li>
-            <a href="/">Home</a>
+            <NavLink to={'/'}></NavLink>
           </li>
           <li>
-            <a href="/">Planètes</a>
+            <NavLink to={'/Accueil'}> Accueil</NavLink>
           </li>
           <li>
-            <a href="/">Coming Soon</a>
+            <NavLink to={'/coming'}> Accueil</NavLink>
           </li>
         </ul>
       </div>
     </nav>
-    );
+  );
 };
 
 export default Navbar;
