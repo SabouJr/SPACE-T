@@ -1,5 +1,17 @@
+/* VARIABLES COULEURS */
+
+:root {
+  --couleur-1: #21191A;
+  --couleur-2: #8CA1D2;
+  --couleur-3: #C2A5AE;
+  --couleur-4: #7F5153;
+  --couleur-5: #AC4139;
+}
+
+/* FIN VARIABLES COULEURS */
 .App {
   text-align: center;
+  background-color: var(--couleur-1);
 }
 
 .App-logo {
