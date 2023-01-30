@@ -1,9 +1,12 @@
 import React from 'react';
+import Footer from '../Footer';
+import Navbar from '../Navbar';
 
 const Home = () => {
     return (
         <div>
-            <h1>Hello World</h1>
+            <Navbar />
+            <Footer />
         </div>
     );
 };
