@@ -17,7 +17,11 @@ const Navbar = () => {
             <NavLink to={'/Accueil'}> Accueil</NavLink>
           </li>
           <li>
+<<<<<<< Updated upstream
             <NavLink to={'/coming'}> Accueilll</NavLink>
+=======
+            <NavLink to={'/coming'}> couille bite</NavLink>
+>>>>>>> Stashed changes
           </li>
         </ul>
       </div>
