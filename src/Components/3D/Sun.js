@@ -11,13 +11,13 @@ const Sun = () => {
 
     useEffect(() => {
         // Initialiser la scène Three.js
+
         const width = sceneContainer.current.clientWidth;
         const height = sceneContainer.current.clientHeight;
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: sceneContainer.current });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        scene.background = new THREE.Color('#21191A');
         const controls = new OrbitControls(camera, renderer.domElement);
         // controls.autoRotate = isRotating;
 
@@ -28,6 +28,9 @@ const Sun = () => {
         // Ajouter un objet à la scène
         const geometry = new THREE.SphereGeometry(1.8, 64, 64);
         const loader = new THREE.TextureLoader();
+        loader.load('./assets/stars.jpg', function (texture) {
+            scene.background = texture;
+        });
         const texture = loader.load('./assets/systemSolaire/sun.jpg');
         const material = new THREE.MeshPhongMaterial({
             shininess: 100,
