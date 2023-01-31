@@ -28,7 +28,7 @@ const Scene = () => {
         // Ajouter un objet à la scène
         const geometry = new THREE.SphereGeometry(1.8, 64, 64);
         const loader = new THREE.TextureLoader();
-        const texture = loader.load('./assets/fullmapb.jpg');
+        const texture = loader.load('./assets/nightmap.jpg');
         const material = new THREE.MeshPhongMaterial({
             shininess: 100,
             reflectivity: 0.5,
