@@ -13,6 +13,7 @@ const Scene = () => {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: sceneContainer.current });
+        renderer.setSize(window.innerWidth, window.innerHeight);
         scene.background = new THREE.Color('#21191A');
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.autoRotate = isRotating;
@@ -61,7 +62,7 @@ const Scene = () => {
 
     };
 
-    return <canvas style={{ width: '80vw', height: '100vh' }} ref={sceneContainer} />;
+    return <canvas ref={sceneContainer} />;
 };
 
 export default Scene;
