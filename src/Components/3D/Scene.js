@@ -1,6 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { NavLink } from 'react-router-dom';
+import './Scene.css';
+
 
 const Scene = () => {
     const sceneContainer = useRef(null);
@@ -23,7 +26,7 @@ const Scene = () => {
         scene.add(light);
 
         // Ajouter un objet à la scène
-        const geometry = new THREE.SphereGeometry(2.2, 64, 64);
+        const geometry = new THREE.SphereGeometry(1.8, 64, 64);
         const loader = new THREE.TextureLoader();
         const texture = loader.load('./assets/fullmapb.jpg');
         const material = new THREE.MeshPhongMaterial({
@@ -62,7 +65,17 @@ const Scene = () => {
 
     };
 
-    return <canvas ref={sceneContainer} />;
+    return (
+
+        <div className='canva'>
+            <div className="button">
+                <button className='button'> <NavLink to={'/'}></NavLink>Explore</button>
+            </div>
+            <canvas ref={sceneContainer} />
+        </div>
+
+
+    );
 };
 
 export default Scene;
