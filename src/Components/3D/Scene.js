@@ -16,12 +16,10 @@ const Scene = () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         scene.background = new THREE.Color('#21191A');
         const controls = new OrbitControls(camera, renderer.domElement);
-        controls.autoRotate = isRotating;
+        // controls.autoRotate = isRotating;
 
-        // Initialiser la source de lumière directionnelle
-        const light = new THREE.DirectionalLight(0xffffff, 1.2);
-        light.position.set(5, 5, 5);
-        light.target.position.set(0, 0, 0);
+        // Initialiser la source de lumière 
+        const light = new THREE.AmbientLight(0xffffff, 1.2);
         scene.add(light);
 
         // Ajouter un objet à la scène
@@ -33,7 +31,7 @@ const Scene = () => {
             reflectivity: 0.5,
             map: texture,
             bumpMap: texture,
-            bumpScale: 0.03,
+            bumpScale: 0.1,
         });
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
@@ -43,8 +41,10 @@ const Scene = () => {
         const animate = () => {
             requestAnimationFrame(animate);
 
-            sphere.rotation.x += 0.00;
-            sphere.rotation.y += 0.002;
+            if (isRotating) {
+                sphere.rotation.x += 0.00;
+                sphere.rotation.y += 0.002;
+            }
 
             renderer.render(scene, camera);
         };
