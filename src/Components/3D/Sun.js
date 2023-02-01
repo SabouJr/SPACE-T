@@ -50,6 +50,8 @@ const Sun = (Modal) => {
             if (isRotating) {
                 sphere.rotation.x += 0.00;
                 sphere.rotation.y += 0.002;
+
+
             }
 
             renderer.render(scene, camera);
