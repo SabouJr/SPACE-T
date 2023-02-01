@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { NavLink } from 'react-router-dom';
 import './Scene.css';
 
 
@@ -37,7 +36,6 @@ const Scene = () => {
         const date = new Date();
         const hour = date.getHours();
 
-        console.log(hour)
         if (hour >= 6 && hour < 18) {
             texture = loader.load('./assets/daymap.jpg');
         } else {
@@ -96,9 +94,9 @@ const Scene = () => {
             controls.update();
             if (isRotating) {
                 sphere.rotation.x += 0.00;
-                sphere.rotation.y += 0.002;
+                sphere.rotation.y += 0.0015;
                 cloud.rotation.x += 0.00;
-                cloud.rotation.y += 0.004;
+                cloud.rotation.y += 0.003;
                 moon.rotation.x += 0.00;
                 moon.rotation.y += 0.003;
 

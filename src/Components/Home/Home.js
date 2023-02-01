@@ -11,7 +11,7 @@ const Home = () => {
             <Navbar />
             <Scene />
             <Sun />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

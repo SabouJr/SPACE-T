@@ -1,9 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { NavLink } from 'react-router-dom';
 import './Scene.css';
-import Modal from "../Modal/Modal";
 
 const Sun = (Modal) => {
     const sceneContainer = useRef(null);
@@ -37,7 +35,7 @@ const Sun = (Modal) => {
             reflectivity: 0.5,
             map: texture,
             bumpMap: texture,
-            bumpScale: 1,
+            bumpScale: 5,
         });
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
