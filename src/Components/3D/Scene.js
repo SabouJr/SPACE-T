@@ -17,7 +17,6 @@ const Scene = () => {
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: sceneContainer.current });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        scene.background = new THREE.Color('#21191A');
         const controls = new OrbitControls(camera, renderer.domElement);
         // controls.autoRotate = isRotating;
 
@@ -28,6 +27,9 @@ const Scene = () => {
         // Ajouter un objet à la scène
         const geometry = new THREE.SphereGeometry(1.8, 64, 64);
         const loader = new THREE.TextureLoader();
+        loader.load('./assets/stars.jpg', function (texture) {
+            scene.background = texture;
+        });
         const texture = loader.load('./assets/nightmap.jpg');
         const material = new THREE.MeshPhongMaterial({
             shininess: 100,
@@ -39,6 +41,16 @@ const Scene = () => {
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
 
+        const cloudGeometry = new THREE.SphereGeometry(1.82, 64, 64);
+        const cloudTexture = loader.load('./assets/clouds.jpg');
+        const cloudMaterial = new THREE.MeshLambertMaterial({
+            map: cloudTexture,
+            transparent: true,
+            opacity: 0.4,
+        });
+        const cloud = new THREE.Mesh(cloudGeometry, cloudMaterial);
+        scene.add(cloud);
+
         camera.position.z = 5;
 
         const animate = () => {
@@ -47,6 +59,8 @@ const Scene = () => {
             if (isRotating) {
                 sphere.rotation.x += 0.00;
                 sphere.rotation.y += 0.002;
+                cloud.rotation.x += 0.00;
+                cloud.rotation.y += 0.004;
             }
 
             renderer.render(scene, camera);
@@ -54,6 +68,8 @@ const Scene = () => {
 
         animate();
     }, [isRotating]);
+
+
 
     const handleMouseDown = () => {
         setIsRotating(false);
@@ -68,9 +84,6 @@ const Scene = () => {
     return (
 
         <div className='canva'>
-            <div className="button">
-                <button className='button'> <NavLink to={'/'}></NavLink>Explore</button>
-            </div>
             <canvas ref={sceneContainer} />
         </div>
 

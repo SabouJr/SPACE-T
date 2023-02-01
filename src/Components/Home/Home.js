@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-
+            <Scene />
             <Sun />
             <Footer />
         </div>

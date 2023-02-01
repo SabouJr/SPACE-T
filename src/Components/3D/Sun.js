@@ -3,9 +3,9 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { NavLink } from 'react-router-dom';
 import './Scene.css';
+import Modal from "../Modal/Modal";
 
-
-const Sun = () => {
+const Sun = (Modal) => {
     const sceneContainer = useRef(null);
     const [isRotating, setIsRotating] = useState(true);
 
@@ -37,7 +37,7 @@ const Sun = () => {
             reflectivity: 0.5,
             map: texture,
             bumpMap: texture,
-            bumpScale: 0.1,
+            bumpScale: 1,
         });
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
@@ -67,13 +67,16 @@ const Sun = () => {
         setIsRotating(true);
 
     };
+    const handleClick = () => {
+        Modal({ text: "Modal content here" });
+    };
+
 
     return (
-
         <div className='canva'>
             <canvas ref={sceneContainer} />
-        </div>
 
+        </div>
 
     );
 };
