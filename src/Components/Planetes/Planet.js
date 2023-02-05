@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Footer from '../Footer';
 import Navbar from '../Navbar';
+import '../../styles/Planet.css';
 
 const Planet = () => {
   const [planets, setPlanets] = useState([])
@@ -11,8 +12,8 @@ const Planet = () => {
         return response.json()
       })
       .then(data => {
-        setPlanets(data);
-        console.log(data);
+        setPlanets(data.bodies);
+        console.log(data.bodies);
       })
   }
 
@@ -21,16 +22,25 @@ const Planet = () => {
   }, [])
 
   return (  
-    <div>
+    <div className="planetPage">
     <Navbar />
-      {planets.length > 0 && (
-        <ul>
-          {planets.map(planet => (
-            <li key={planet.id}>{planet.name}</li>
-          ))}
-        </ul>
-      )}
-      <Footer />
+    <div className="planetAll">
+      <div className="planetDesc">
+        {planets.length > 0 && (
+            <ul>
+              {planets.map(planet => (
+                <li key={planet.id}>
+                  {planet.name}
+                </li>
+              ))}
+            </ul>
+        )}
+      </div>
+      <div className="planetVisu">
+
+      </div>
+    </div>
+    <Footer />
     </div>
   )
 }
