@@ -1,7 +1,8 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
-import Galaxy from './Components/Planetes/Galaxy';
+import Planet from './Components/Planetes/Planet';
+
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path="*" element={<Galaxy />}></Route>
+          <Route path="/planetes" element={<Planet />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
