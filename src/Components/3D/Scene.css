@@ -18,3 +18,9 @@
     background-image: url('./explore.jpg');
     background-size: cover;
 }
+
+Canvas {
+    background-image: url('./stars.jpg');
+    width: 100vw;
+    height: 100vh;
+}
