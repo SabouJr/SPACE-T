@@ -5,29 +5,26 @@ import Logo2 from "./Logo2.png";
 
 const Navbar = () => {
   return (
-    <div className="nav">
-      <nav className="navigation">
-        <div className="brand-nam">
-          <NavLink to={'/'}>
-            <img src={Logo2} alt="" width={100} height={100} />
-          </NavLink>
-
-        </div>
-        <div className="navigation-menu">
-          <ul>
-            <li>
-              <NavLink to={'/'}></NavLink>
-            </li>
-            <li>
-              <NavLink to={'/Accueil'}> Accueil</NavLink>
-            </li>
-            <li>
-              <NavLink to={'/coming'}> Accueilll</NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <div className="nav">  
+    <nav className="navigation">
+      <a href="/" className="brand-name">
+        SPACE-T
+      </a>
+      <div className="navigation-menu">
+        <ul>
+          <li>
+            <NavLink to={'/'}></NavLink>
+          </li>
+          <li>
+            <NavLink to={'/Accueil'}> Accueil</NavLink>
+          </li>
+          <li>
+            <NavLink to={'/planetes'}> Planètes</NavLink>
+          </li>
+        </ul>
+      </div>
+    </nav>
+   </div>
   );
 };
 
