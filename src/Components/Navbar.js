@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/Navbar.css'
 import { NavLink } from 'react-router-dom';
+import Logo2 from "./Logo2.png";
 
 const Navbar = () => {
   return (
+    <div className="nav">  
     <nav className="navigation">
       <a href="/" className="brand-name">
         SPACE-T
@@ -22,6 +24,7 @@ const Navbar = () => {
         </ul>
       </div>
     </nav>
+   </div>
   );
 };
 

@@ -1,23 +1,21 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { NavLink } from 'react-router-dom';
 import './Scene.css';
 
-
-const Sun = () => {
+const Sun = (Modal) => {
     const sceneContainer = useRef(null);
     const [isRotating, setIsRotating] = useState(true);
 
     useEffect(() => {
         // Initialiser la scène Three.js
+
         const width = sceneContainer.current.clientWidth;
         const height = sceneContainer.current.clientHeight;
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: sceneContainer.current });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        scene.background = new THREE.Color('#21191A');
         const controls = new OrbitControls(camera, renderer.domElement);
         // controls.autoRotate = isRotating;
 
@@ -28,13 +26,16 @@ const Sun = () => {
         // Ajouter un objet à la scène
         const geometry = new THREE.SphereGeometry(1.8, 64, 64);
         const loader = new THREE.TextureLoader();
+        loader.load('./assets/stars.jpg', function (texture) {
+            scene.background = texture;
+        });
         const texture = loader.load('./assets/systemSolaire/sun.jpg');
         const material = new THREE.MeshPhongMaterial({
             shininess: 100,
             reflectivity: 0.5,
             map: texture,
             bumpMap: texture,
-            bumpScale: 0.1,
+            bumpScale: 5,
         });
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
@@ -47,6 +48,8 @@ const Sun = () => {
             if (isRotating) {
                 sphere.rotation.x += 0.00;
                 sphere.rotation.y += 0.002;
+
+
             }
 
             renderer.render(scene, camera);
@@ -64,13 +67,16 @@ const Sun = () => {
         setIsRotating(true);
 
     };
+    const handleClick = () => {
+        Modal({ text: "Modal content here" });
+    };
+
 
     return (
-
         <div className='canva'>
             <canvas ref={sceneContainer} />
-        </div>
 
+        </div>
 
     );
 };
