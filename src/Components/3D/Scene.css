@@ -12,15 +12,7 @@
     transition: width 2s ease-in .5s;
 }
 
-.buttonScene:hover {
-    opacity: 2;
-    cursor: pointer;
-    background-image: url('./explore.jpg');
-    background-size: cover;
-}
-
 Canvas {
-    background-image: url('./stars.jpg');
     width: 100vw;
     height: 100vh;
 }
