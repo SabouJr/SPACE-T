@@ -21,7 +21,7 @@ const Navbar = () => {
               <NavLink to={'/Accueil'}> Accueil</NavLink>
             </li>
             <li>
-              <NavLink to={'/coming'}> Accueilll</NavLink>
+              <NavLink to={'/coming'}> Planetes</NavLink>
             </li>
           </ul>
         </div>
